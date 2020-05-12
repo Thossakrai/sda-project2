@@ -21,13 +21,19 @@ public class AuctionServer implements IAuctionServer{
             AuctionItem newItem = new AuctionItem(ownerName, itemName, itemDesc, startBid, auctionTime);
             auctionItems.add(newItem);
         } else {
-            throw new IllegalAccessException("Item is already in the system");
+            throw new Exception("Item is already in the system");
         }
     }
 
     @Override
     public void bidOnItem(String bidderName, String itemName, double bid) {
-        auctionItems.stream().filter(item -> itemName.equals(item.itemName)).findFirst().ifPresent(biddenItem -> biddenItem.bid(itemName, bid));
+        auctionItems.stream().filter(item -> itemName.equals(item.itemName)).findFirst().ifPresent(biddenItem -> {
+            try {
+                biddenItem.bid(itemName, bid);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override
