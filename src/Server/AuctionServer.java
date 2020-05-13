@@ -1,5 +1,6 @@
 package Server;
 
+import Client.AuctionListener;
 import Client.IAuctionListener;
 import Server.Item.AuctionItem;
 import Server.Item.IAuctionItem;
@@ -47,12 +48,17 @@ public class AuctionServer implements IAuctionServer {
     }
 
     @Override
+    public int countItems() {
+        return auctionItems.size();
+    }
+
+    @Override
     public AuctionItem getItem(String itemName) {
         return auctionItems.stream().filter(item -> item.itemName.equals(itemName)).findFirst().orElse(null);
     }
 
     @Override
-    public void registerListener(IAuctionListener al, String itemName) {
+    public void registerListener(AuctionListener al, String itemName) {
         auctionListeners.add(new AuctionSubscriber(al, itemName));
     }
 

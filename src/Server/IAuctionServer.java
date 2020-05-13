@@ -1,5 +1,6 @@
 package Server;
 
+import Client.AuctionListener;
 import Client.IAuctionListener;
 import Server.Item.AuctionItem;
 import Server.Item.IAuctionItem;
@@ -11,6 +12,7 @@ public interface IAuctionServer {
     public void bidOnItem(String bidderName, String itemName, double bid);
     public ArrayList<AuctionItem> getItems();
     public AuctionItem getItem(String itemName);
-    public void registerListener(IAuctionListener al, String itemName);
+    public int countItems();
+    public void registerListener(AuctionListener al, String itemName);
     public void notifyObservers(String itemName);
 }
