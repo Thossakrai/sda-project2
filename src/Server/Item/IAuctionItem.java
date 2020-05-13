@@ -1,5 +1,7 @@
 package Server.Item;
 
-public interface IAuctionItem {
+import Server.IAuctionServer;
+
+public interface IAuctionItem extends IAuctionServer {
     boolean bid(String bidderName, double bid);
 }

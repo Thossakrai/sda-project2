@@ -1,6 +1,8 @@
 package Server.Item;
 
-public class BidRecord {
+import Server.AuctionServer;
+
+public class BidRecord extends AuctionServer {
     String bidderName;
     double bid;
 

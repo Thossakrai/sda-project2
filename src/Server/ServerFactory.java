@@ -1,6 +1,6 @@
 package Server;
 
-public class ServerFactory implements IServerFactory {
+public class ServerFactory extends AuctionServer implements IServerFactory {
     private AuctionServer server = null;
 
     @Override

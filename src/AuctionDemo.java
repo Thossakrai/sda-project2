@@ -1,11 +1,12 @@
 import Client.AuctionListener;
 import Server.AuctionServer;
+import Server.IServerFactory;
 import Server.Item.AuctionItem;
 import Server.ServerFactory;
 
 import java.util.Scanner;
 
-public class AuctionDemo {
+public abstract class AuctionDemo implements IServerFactory {
     public static void main(String[] args) {
         AuctionServer server = getServer();
         boolean activated = true;
@@ -14,7 +15,6 @@ public class AuctionDemo {
             String itemName, itemDesc, startBid, auctionTime, ownerName, bidderName, bid, listenerName;
             Scanner scanner = new Scanner(System.in);
             String selectedMenu = scanner.nextLine();
-//            System.out.println("Menu select = " + selectedMenu);
             switch (selectedMenu) {
                 case "1" :
                     System.out.println("PLACE ITEM FOR BID");

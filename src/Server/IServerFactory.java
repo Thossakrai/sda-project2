@@ -1,6 +1,6 @@
 package Server;
 
-public interface IServerFactory {
+public interface IServerFactory extends IAuctionServer {
     void create();
     AuctionServer getInstance();
 }
