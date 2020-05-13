@@ -23,13 +23,15 @@ public class AuctionItem implements IAuctionItem {
 
 
     @Override
-    public void bid(String bidderName, double bid) throws Exception {
+    public boolean bid(String bidderName, double bid) {
         if (bid > currentBid) {
             currentBid = bid;
             BidRecord newRecord = new BidRecord(bidderName, bid);
             bidRecords.add(newRecord);
+            return true;
         } else {
-            throw new Exception("Bid is lower that current bid");
+            System.out.println("Your bid on " + itemName + " is lower that current bid (" + currentBid + " bid)");
+            return false;
         }
     }
 }

@@ -10,5 +10,8 @@ public class AuctionDemo {
         server.placeItemForBid("thosk", "books", "books", 500, 1000);
         AuctionItem item = (AuctionItem) server.getItem("books");
         System.out.println(item.itemName);
+        server.bidOnItem("michael", "books", 100);
+
+
     }
 }
